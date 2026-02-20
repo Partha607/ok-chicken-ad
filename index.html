@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OK Chicken Rice Bowl - Pitch</title>
+    <title>OK Chicken Rice Bowl - Confidential Pitch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -15,20 +18,26 @@
                     colors: {
                         'brand-red': '#E50914',
                         'brand-gold': '#FFB703',
-                        'brand-card': '#111111'
+                        'brand-card': '#111111',
+                        'brand-dark': '#050505'
                     },
                     fontFamily: {
                         'oswald': ['Oswald', 'sans-serif'],
                         'poppins': ['Poppins', 'sans-serif'],
                     },
                     animation: {
-                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                         'bounce-slow': 'bounce 2.5s infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
                     },
                     keyframes: {
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { borderColor: 'rgba(255, 183, 3, 0.3)', boxShadow: '0 0 15px rgba(255, 183, 3, 0.1)' },
+                            '50%': { borderColor: 'rgba(255, 183, 3, 0.8)', boxShadow: '0 0 25px rgba(255, 183, 3, 0.3)' },
                         }
                     }
                 }
@@ -43,217 +52,421 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        
+
         /* Video Blending Magic */
         .video-blend {
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-            pointer-events: none; /* Prevents all user interaction */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+            /* Prevents all user interaction */
         }
-        
-        /* Hide all default video controls */
+
         video::-webkit-media-controls,
         video::-webkit-media-controls-enclosure,
         video::-webkit-media-controls-panel {
             display: none !important;
         }
 
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #E50914;
+            border-radius: 10px;
+        }
     </style>
 </head>
-<body class="bg-black">
+
+<body class="bg-black selection:bg-brand-red selection:text-white">
 
     <!-- ==========================================
          SECTION 1: THE IMMERSIVE CONSUMER AD
          ========================================== -->
     <main class="relative w-full min-h-[95svh] flex flex-col justify-start bg-black">
-        
-        <!-- Seamless Background Video Container -->
+
         <div class="relative w-full h-[55vh] sm:h-[70vh] flex justify-center bg-black overflow-hidden mt-4">
-            <!-- 
-                Video settings explicitly disable controls, Picture-in-Picture, and interaction 
-                to create an immersive "living poster" effect.
-            -->
-            <video 
-                src="ok-chicken-rice-bowl.mp4" 
-                autoplay 
-                loop 
-                muted 
-                playsinline
-                disablepictureinpicture
+            <video src="ok-chicken-rice-bowl.mp4" autoplay loop muted playsinline disablepictureinpicture
                 class="absolute inset-0 w-full h-full object-cover sm:object-contain video-blend z-0">
             </video>
         </div>
 
-        <!-- Ad Text Overlay (Pulled up to overlap the faded video edge) -->
         <div class="relative z-10 w-full px-6 flex flex-col items-center text-center -mt-16 sm:-mt-24">
-            
+
             <div class="opacity-0 animate-fade-in-up">
-                <div class="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                <div
+                    class="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
                     <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
-                    <span class="text-[10px] font-semibold tracking-widest uppercase text-gray-300">New Menu Addition</span>
+                    <span class="text-xs font-semibold tracking-widest uppercase text-gray-300">New Menu Addition</span>
                 </div>
-                <h1 class="font-oswald text-6xl sm:text-7xl font-bold tracking-tight text-white uppercase leading-none drop-shadow-2xl">
+                <h1
+                    class="font-oswald text-6xl sm:text-7xl font-bold tracking-tight text-white uppercase leading-none drop-shadow-2xl">
                     OK Chicken
                 </h1>
-                <h2 class="font-oswald text-5xl sm:text-6xl font-bold text-brand-gold uppercase leading-tight drop-shadow-lg mb-4">
+                <h2
+                    class="font-oswald text-5xl sm:text-6xl font-bold text-brand-gold uppercase leading-tight drop-shadow-lg mb-4">
                     Rice Bowl
                 </h2>
             </div>
 
             <div class="opacity-0 animate-fade-in-up delay-100 mb-5">
-                <div class="inline-block bg-brand-red text-white font-oswald tracking-wide font-bold text-4xl px-10 py-2.5 rounded-full shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                <div
+                    class="inline-block bg-brand-red text-white font-oswald tracking-wide font-bold text-4xl px-10 py-2.5 rounded-full shadow-[0_0_20px_rgba(229,9,20,0.5)]">
                     ₹129
                 </div>
             </div>
 
-            <p class="text-gray-300 text-sm sm:text-base font-light max-w-sm mx-auto mb-6 opacity-0 animate-fade-in-up delay-200">
+            <p
+                class="text-gray-300 text-base sm:text-lg font-light max-w-sm mx-auto mb-6 opacity-0 animate-fade-in-up delay-200">
                 The everyday affordable rice meal of Northeast India. <br>
-                <span class="text-white font-medium">220g Premium Rice + 100g Glazed Chicken.</span>
+                <span class="text-white font-medium">A proper meal, not a snack.</span>
             </p>
 
-            <button class="w-full max-w-[280px] bg-white text-black font-bold py-4 rounded-2xl text-lg hover:bg-gray-200 transition-transform active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.15)] opacity-0 animate-fade-in-up delay-300 uppercase">
+            <button
+                class="w-full max-w-[280px] bg-white text-black font-bold py-4 rounded-2xl text-lg hover:bg-gray-200 transition-transform active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.15)] opacity-0 animate-fade-in-up delay-300 uppercase">
                 Order Now
             </button>
-            
-            <!-- Scroll Indicator -->
+
             <div class="mt-10 flex flex-col items-center text-gray-600 opacity-0 animate-fade-in-up delay-300">
-                <span class="text-[9px] font-bold tracking-[0.2em] uppercase mb-1">Scroll for Business Pitch</span>
-                <svg class="w-4 h-4 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                <span class="text-xs font-bold tracking-[0.2em] uppercase mb-1">Scroll for Business Pitch</span>
+                <svg class="w-4 h-4 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
             </div>
         </div>
     </main>
 
     <!-- ==========================================
-         SECTION 2: THE BUSINESS PITCH (Owner's Deck)
+         SECTION 2: THE DETAILED BUSINESS PITCH
          ========================================== -->
-    <section class="bg-[#050505] border-t border-gray-900 px-5 py-14 sm:px-10 z-20 relative">
-        <div class="max-w-md mx-auto">
-            
-            <div class="mb-10 text-center">
-                <span class="inline-block py-1 px-3 rounded text-brand-red text-[10px] font-bold tracking-widest uppercase mb-3 border border-brand-red/30 bg-brand-red/10">Confidential Strategy</span>
-                <h2 class="font-oswald text-3xl font-bold uppercase tracking-wide text-white mb-2">The Unit Economics</h2>
-                <p class="text-gray-400 text-xs px-4">Low risk. High volume. Fast ROI. Here is the financial breakdown for the new OK Chicken Rice Bowl.</p>
-            </div>
+    <section class="bg-brand-dark border-t border-gray-900 px-5 py-14 sm:px-10 z-20 relative">
+        <div class="max-w-lg mx-auto">
 
-            <!-- Economics Grid -->
-            <div class="grid grid-cols-2 gap-3 mb-8">
-                <div class="bg-brand-card p-4 rounded-2xl border border-gray-800 flex flex-col justify-center">
-                    <div class="text-gray-500 text-[10px] font-semibold uppercase tracking-wider mb-1">Total Cost</div>
-                    <div class="text-2xl font-oswald font-bold text-white mb-1">₹70</div>
-                    <div class="text-[9px] text-gray-500 leading-tight">Food, Pkg & Ops</div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-brand-card to-[#1a0a0a] p-4 rounded-2xl border border-brand-red/40 flex flex-col justify-center">
-                    <div class="text-brand-red text-[10px] font-semibold uppercase tracking-wider mb-1">Selling Price</div>
-                    <div class="text-2xl font-oswald font-bold text-white mb-1">₹129</div>
-                    <div class="text-[9px] text-gray-400 leading-tight">Everyday Value</div>
-                </div>
-
-                <div class="bg-gradient-to-br from-brand-card to-[#1a1505] p-4 rounded-2xl border border-brand-gold/40 flex flex-col justify-center col-span-2 sm:col-span-1">
-                    <div class="text-brand-gold text-[10px] font-semibold uppercase tracking-wider mb-1">Net Profit</div>
-                    <div class="text-3xl font-oswald font-bold text-white mb-1">₹59</div>
-                    <div class="text-[10px] text-brand-gold/70 leading-tight">Per bowl sold</div>
-                </div>
-
-                <div class="bg-brand-card p-4 rounded-2xl border border-gray-800 flex flex-col justify-center col-span-2 sm:col-span-1">
-                    <div class="text-gray-500 text-[10px] font-semibold uppercase tracking-wider mb-1">Margin</div>
-                    <div class="text-3xl font-oswald font-bold text-green-400 mb-1">~84%</div>
-                    <div class="text-[10px] text-gray-500 leading-tight">Highly Scalable</div>
+            <!-- Strategic Header -->
+            <div class="mb-12 text-center">
+                <span
+                    class="inline-block py-1 px-3 rounded text-brand-red text-xs font-bold tracking-widest uppercase mb-3 border border-brand-red/30 bg-brand-red/10">Confidential
+                    Expansion Strategy</span>
+                <h2 class="font-oswald text-3xl font-bold uppercase tracking-wide text-white mb-3">The Northeast Market
+                    Opportunity</h2>
+                <p class="text-gray-300 text-sm px-2 leading-relaxed">
+                    Northeast India is a rice-dominant market. Urban centers like <span
+                        class="text-white font-medium">Guwahati, Shillong, Imphal, Agartala, Kohima, Aizawl, Itanagar,
+                        and Gangtok</span> have a massive base of students and office workers seeking value-for-money
+                    daily meals.
+                </p>
+                <div class="mt-5 p-4 bg-brand-card border border-brand-gold/20 rounded-xl inline-block shadow-lg">
+                    <p class="font-oswald text-brand-gold uppercase text-base tracking-wide font-bold mb-1">Strategic
+                        Goal</p>
+                    <p class="text-sm text-gray-300">Position OK Chicken Rice Bowl as the "Everyday Affordable Rice Meal
+                        of Northeast India." Low risk. High volume. Fast ROI.</p>
                 </div>
             </div>
 
-            <!-- Cost Breakdown Bars -->
-            <div class="bg-[#0a0a0a] rounded-2xl p-5 border border-gray-800 mb-8">
-                <h3 class="font-semibold text-white text-xs mb-4 uppercase tracking-wide">Cost Breakdown per Bowl</h3>
-                
-                <div class="space-y-3">
-                    <div>
-                        <div class="flex justify-between items-end mb-1">
-                            <span class="text-gray-400 text-[11px]">Food (Rice, Chicken, Veg)</span>
-                            <span class="text-white font-medium text-xs">₹48</span>
+            <!-- The Product Profile -->
+            <div class="bg-gradient-to-br from-brand-card to-black p-6 rounded-2xl border border-gray-800 mb-10">
+                <h3 class="font-oswald text-xl text-white uppercase tracking-wide mb-4 flex items-center gap-2">
+                    <span>🍚</span> The Product Profile
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-black/50 p-4 rounded-xl border border-gray-800/50">
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">Core Components</div>
+                        <div class="text-white text-sm font-medium">220g Rice + 100g Glazed Chicken</div>
+                    </div>
+                    <div class="bg-black/50 p-4 rounded-xl border border-gray-800/50">
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-1 font-bold">Packaging</div>
+                        <div class="text-white text-sm font-medium">Clean, premium kraft packaging</div>
+                    </div>
+                    <div
+                        class="bg-black/50 p-4 rounded-xl border border-gray-800/50 col-span-2 flex items-center gap-4">
+                        <span class="text-2xl">🛵</span>
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mb-0.5 font-bold">Delivery
+                                Optimized</div>
+                            <div class="text-white text-sm font-medium">Perfect for Swiggy/Zomato. Less spillage than
+                                curries, maintains quality in transit.</div>
                         </div>
-                        <div class="w-full bg-gray-900 h-1.5 rounded-full overflow-hidden">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transparent Cost Breakdown -->
+            <h3 class="font-oswald text-2xl text-center text-white uppercase tracking-wide mb-6">Meticulous Cost
+                Breakdown</h3>
+
+            <div class="space-y-5 mb-10">
+                <!-- 1. Food Cost -->
+                <div class="bg-brand-card rounded-2xl border border-gray-800 overflow-hidden shadow-lg">
+                    <div class="bg-gray-900/50 px-5 py-4 border-b border-gray-800">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-brand-red font-bold text-sm uppercase tracking-wider">1. Direct Food
+                                Cost</span>
+                            <span class="font-oswald text-2xl text-white">₹48</span>
+                        </div>
+                        <!-- Horizontal Bar -->
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-gray-800/50">
                             <div class="bg-brand-red h-full rounded-full" style="width: 68%"></div>
                         </div>
                     </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Rice (220g)</span><span
+                                class="text-white font-medium">₹10</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Chicken cooked
+                                (100g)</span><span class="text-white font-medium">₹28</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Sauce / Veg (onion,
+                                sesame)</span><span class="text-white font-medium">₹6</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Oil, spices,
+                                seasoning</span><span class="text-white font-medium">₹4</span></div>
+                    </div>
+                </div>
 
-                    <div>
-                        <div class="flex justify-between items-end mb-1">
-                            <span class="text-gray-400 text-[11px]">Packaging (Kraft, Label)</span>
-                            <span class="text-white font-medium text-xs">₹11</span>
+                <!-- 2. Packaging Cost -->
+                <div class="bg-brand-card rounded-2xl border border-gray-800 overflow-hidden shadow-lg">
+                    <div class="bg-gray-900/50 px-5 py-4 border-b border-gray-800">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-brand-gold font-bold text-sm uppercase tracking-wider">2. Packaging
+                                Cost</span>
+                            <span class="font-oswald text-2xl text-white">₹11</span>
                         </div>
-                        <div class="w-full bg-gray-900 h-1.5 rounded-full overflow-hidden">
+                        <!-- Horizontal Bar -->
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-gray-800/50">
                             <div class="bg-brand-gold h-full rounded-full" style="width: 16%"></div>
                         </div>
                     </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Kraft brown bowl +
+                                lid</span><span class="text-white font-medium">₹8</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Printed label
+                                (optional)</span><span class="text-white font-medium">₹2</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Napkin</span><span
+                                class="text-white font-medium">₹1</span></div>
+                    </div>
+                </div>
 
-                    <div>
-                        <div class="flex justify-between items-end mb-1">
-                            <span class="text-gray-400 text-[11px]">Ops (Gas, Labour, Misc)</span>
-                            <span class="text-white font-medium text-xs">₹11</span>
+                <!-- 3. Ops Cost -->
+                <div class="bg-brand-card rounded-2xl border border-gray-800 overflow-hidden shadow-lg">
+                    <div class="bg-gray-900/50 px-5 py-4 border-b border-gray-800">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-blue-400 font-bold text-sm uppercase tracking-wider">3. Cooking & Ops
+                                Cost</span>
+                            <span class="font-oswald text-2xl text-white">₹11</span>
                         </div>
-                        <div class="w-full bg-gray-900 h-1.5 rounded-full overflow-hidden">
+                        <!-- Horizontal Bar -->
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-gray-800/50">
                             <div class="bg-blue-500 h-full rounded-full" style="width: 16%"></div>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-gray-500 mb-3 uppercase tracking-wide font-bold">Allocated per bowl
+                            (Based on 150/day)</p>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Gas / Electricity
+                                portion</span><span class="text-white font-medium">₹3</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Labour portion</span><span
+                                class="text-white font-medium">₹6</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-400">Misc (water, cleaning,
+                                waste)</span><span class="text-white font-medium">₹2</span></div>
+                    </div>
+                </div>
+
+                <!-- Grand Total Banner -->
+                <div
+                    class="bg-gradient-to-r from-gray-900 to-black p-5 rounded-2xl border border-white/10 flex justify-between items-center shadow-xl mt-2">
+                    <span class="text-gray-300 font-bold uppercase tracking-widest text-sm">Grand Total Cost</span>
+                    <span class="font-oswald text-4xl text-white">₹70 <span class="text-xs text-gray-500 font-poppins">/
+                            bowl</span></span>
+                </div>
+            </div>
+
+            <!-- Pricing Strategy & Margins -->
+            <div class="mb-12">
+                <h3 class="font-oswald text-2xl text-center text-white uppercase tracking-wide mb-6">Pricing & Margins
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <!-- Strategy 1 -->
+                    <div
+                        class="bg-brand-card border border-brand-red/40 rounded-2xl p-6 relative overflow-hidden shadow-lg">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-brand-red/10 rounded-full blur-2xl"></div>
+                        <div class="text-xs text-brand-red font-bold uppercase tracking-widest mb-2 relative z-10">
+                            Everyday Value</div>
+                        <div class="font-oswald text-5xl text-white mb-5 relative z-10">₹129</div>
+                        <div class="space-y-2 relative z-10">
+                            <div class="flex justify-between text-sm border-b border-gray-800 pb-2"><span
+                                    class="text-gray-400">Profit</span><span
+                                    class="text-green-400 font-bold text-base">~₹59</span></div>
+                            <div class="flex justify-between text-sm pt-1"><span
+                                    class="text-gray-400">Margin</span><span
+                                    class="text-white font-bold text-base">~84%</span></div>
+                        </div>
+                    </div>
+                    <!-- Strategy 2 -->
+                    <div
+                        class="bg-brand-card border border-brand-gold/40 rounded-2xl p-6 relative overflow-hidden shadow-lg animate-pulse-glow">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-brand-gold/10 rounded-full blur-2xl"></div>
+                        <div class="text-xs text-brand-gold font-bold uppercase tracking-widest mb-2 relative z-10">
+                            Premium / Special</div>
+                        <div class="font-oswald text-5xl text-white mb-5 relative z-10">₹139</div>
+                        <div class="space-y-2 relative z-10">
+                            <div class="flex justify-between text-sm border-b border-gray-800 pb-2"><span
+                                    class="text-gray-400">Profit</span><span
+                                    class="text-green-400 font-bold text-base">~₹69</span></div>
+                            <div class="flex justify-between text-sm pt-1"><span
+                                    class="text-gray-400">Margin</span><span
+                                    class="text-white font-bold text-base">~99%</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Break Even -->
-            <div class="bg-gradient-to-b from-[#111] to-[#050505] p-5 rounded-2xl border border-gray-800 mb-8">
-                <h3 class="font-oswald font-bold text-xl text-white mb-2 tracking-wide">THE BREAK-EVEN MAGIC</h3>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                    Assuming fixed overheads of ₹1,00,000/month, you only need to sell:
-                </p>
-                <div class="bg-black py-3 px-4 rounded-xl border border-gray-800 flex items-center justify-between mb-3">
-                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Target</div>
-                    <div class="text-2xl font-oswald font-bold text-brand-gold">~57 Bowls/Day</div>
+            <!-- Notes on Variables -->
+            <div class="bg-[#0a0a0a] rounded-2xl p-6 border border-gray-800 mb-10 shadow-lg">
+                <h4 class="text-white text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-2"><span
+                        class="text-brand-gold text-lg">⚙️</span> Cost Variables To Watch</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><span class="text-brand-red">🔹</span>
+                        <p><strong class="text-gray-200">Food Cost Fluctuates:</strong> Chicken prices vary seasonally.
+                            Reduce costs by bulk buying.</p>
+                    </li>
+                    <li class="flex items-start gap-3"><span class="text-brand-red">🔹</span>
+                        <p><strong class="text-gray-200">Packaging:</strong> Basic kraft bowls are highly
+                            cost-effective. Branded printing slightly raises cost.</p>
+                    </li>
+                    <li class="flex items-start gap-3"><span class="text-brand-red">🔹</span>
+                        <p><strong class="text-gray-200">Labor & Utilities:</strong> Calculated assuming 150 bowls/day.
+                            As volume increases, per-bowl allocation goes down.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- The Break Even Magic -->
+            <div
+                class="bg-gradient-to-b from-[#111] to-[#050505] p-8 rounded-3xl border border-gray-800 shadow-2xl mb-12">
+                <h3 class="font-oswald font-bold text-3xl text-center text-white mb-6 tracking-wide">THE BREAK-EVEN
+                    MAGIC</h3>
+
+                <div class="bg-black/50 p-5 rounded-2xl border border-gray-800/50 mb-6 text-sm text-gray-300">
+                    <p class="mb-3 text-xs text-gray-500 uppercase tracking-widest font-bold">Assuming Monthly Fixed
+                        Costs:</p>
+                    <div class="flex justify-between mb-2"><span>Rent + utilities</span><span
+                            class="text-white font-medium">₹45,000</span></div>
+                    <div class="flex justify-between mb-2"><span>Staff salary</span><span
+                            class="text-white font-medium">₹40,000</span></div>
+                    <div class="flex justify-between border-b border-gray-800 pb-3 mb-3"><span>Delivery &
+                            marketing</span><span class="text-white font-medium">₹15,000</span></div>
+                    <div class="flex justify-between font-bold text-base"><span class="text-brand-red">Total
+                            Fixed</span><span class="text-white">₹1,00,000</span></div>
                 </div>
-                <div class="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-500/20">
-                    <span class="text-lg">💰</span>
-                    <p class="text-green-400 text-[11px] font-medium leading-tight">
-                        Sell 150 bowls/day and hit <strong class="text-white">₹1,50,000+</strong> in pure monthly profit.
+
+                <div class="text-center mb-8">
+                    <p class="text-sm text-gray-400 mb-3">At ₹59 profit per bowl, to cover ₹1L fixed costs:</p>
+                    <div class="inline-block bg-black py-4 px-8 rounded-2xl border border-brand-gold/30 shadow-lg">
+                        <div class="font-oswald text-4xl font-bold text-brand-gold mb-1">~57 Bowls / Day</div>
+                        <div class="text-xs text-gray-500 tracking-wider uppercase font-medium">1,695 bowls / month
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex items-center justify-center gap-4 p-5 bg-green-500/10 rounded-2xl border border-green-500/20 shadow-inner">
+                    <span class="text-3xl font-bold text-green-400">₹</span>
+                    <p class="text-green-400 text-sm font-medium leading-relaxed">
+                        Easily achievable in busy NE capitals. Sell <strong>150 bowls/day</strong> and hit <strong
+                            class="text-white text-base bg-green-500/20 px-2 py-0.5 rounded">~₹1,50,000+</strong> in
+                        pure monthly profit.
                     </p>
                 </div>
             </div>
 
-            <!-- Why it Works -->
-            <div class="mb-10">
-                <h3 class="font-oswald font-bold text-lg text-white mb-4 tracking-wide uppercase">Why This Works</h3>
-                <div class="space-y-2">
-                    <div class="flex gap-3 p-3 bg-brand-card rounded-xl border border-gray-800/60">
-                        <div class="text-xl">🛵</div>
+            <!-- Profit Boosters & Local Customization -->
+            <div class="mb-12">
+                <h3 class="font-oswald font-bold text-2xl text-white mb-6 tracking-wide uppercase">Profit Boosters &
+                    Strategy</h3>
+                <div class="grid grid-cols-1 gap-4">
+                    <div
+                        class="bg-brand-card p-5 rounded-2xl border border-gray-800 hover:border-gray-600 transition-colors flex items-start gap-4 shadow-md">
+                        <div class="text-2xl pt-0.5">📈</div>
                         <div>
-                            <h4 class="text-white font-semibold text-xs mb-0.5">Delivery-Optimized</h4>
-                            <p class="text-gray-500 text-[10px] leading-relaxed">Perfect for Swiggy & Zomato. Zero spillage compared to curries, simple kraft packaging.</p>
+                            <h4 class="text-white text-sm font-bold uppercase mb-1.5">High-Margin Upsells</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Combo with drink <strong
+                                    class="text-white">(₹159)</strong>, add an egg <strong
+                                    class="text-white">(+₹20)</strong>, or extra chicken <strong
+                                    class="text-white">(+₹25)</strong>.</p>
                         </div>
                     </div>
-                    <div class="flex gap-3 p-3 bg-brand-card rounded-xl border border-gray-800/60">
-                        <div class="text-xl">🎯</div>
+                    <div
+                        class="bg-brand-card p-5 rounded-2xl border border-gray-800 hover:border-gray-600 transition-colors flex items-start gap-4 shadow-md">
+                        <div class="text-2xl pt-0.5">🍚</div>
                         <div>
-                            <h4 class="text-white font-semibold text-xs mb-0.5">Northeast Market Fit</h4>
-                            <p class="text-gray-500 text-[10px] leading-relaxed">Rice is the staple. High demand from students and offices looking for proper meals.</p>
+                            <h4 class="text-white text-sm font-bold uppercase mb-1.5">The Rice Hack</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Increase rice ratio slightly. Perceived
+                                value goes up massively, while raw cost addition is extremely minimal.</p>
                         </div>
                     </div>
-                    <div class="flex gap-3 p-3 bg-brand-card rounded-xl border border-gray-800/60">
-                        <div class="text-xl">💥</div>
+                    <div
+                        class="bg-brand-card p-5 rounded-2xl border border-gray-800 hover:border-gray-600 transition-colors flex items-start gap-4 shadow-md">
+                        <div class="text-2xl pt-0.5">🌶️</div>
                         <div>
-                            <h4 class="text-white font-semibold text-xs mb-0.5">Instant Upsells</h4>
-                            <p class="text-gray-500 text-[10px] leading-relaxed">Combo with drink (+₹30), add an egg (+₹20), or extra chicken (+₹25) to boost margins.</p>
+                            <h4 class="text-white text-sm font-bold uppercase mb-1.5">Local Adaptation = Brand Loyalty
+                            </h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Create custom variations: Mild version,
+                                Spicy version, or a regional <strong class="text-brand-gold">Bamboo Shoot
+                                    twist</strong>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button class="bg-brand-red text-white font-bold py-4 px-8 rounded-2xl text-sm w-full uppercase tracking-wider hover:bg-red-700 transition-colors shadow-lg shadow-red-900/20">
-                Start Selling Now
+            <!-- Executive Snapshot -->
+            <div class="bg-white text-black p-8 rounded-3xl mb-12 text-center shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                <h3 class="font-oswald text-3xl font-bold uppercase mb-6 border-b border-gray-200 pb-4">Quick Snapshot
+                </h3>
+                <div class="grid grid-cols-2 gap-y-5 gap-x-4 text-base text-left">
+                    <div class="font-semibold text-gray-600">Cost per bowl</div>
+                    <div class="font-bold text-right text-xl">₹70</div>
+
+                    <div class="font-semibold text-gray-600">Selling price</div>
+                    <div class="font-bold text-right text-xl text-brand-red">₹129</div>
+
+                    <div class="font-semibold text-gray-600">Margin</div>
+                    <div class="font-bold text-right text-xl">~84%</div>
+
+                    <div class="font-semibold text-gray-600">Daily break-even</div>
+                    <div class="font-bold text-right text-xl">~57 bowls</div>
+                </div>
+                <div class="mt-6 pt-5 border-t border-gray-200 text-center bg-gray-50 rounded-xl p-4">
+                    <div class="text-sm text-gray-500 font-bold uppercase mb-2">Monthly profit at 150 bowls/day</div>
+                    <div class="font-oswald text-4xl text-green-600 font-bold">~₹1,50,000+</div>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <button
+                class="bg-brand-red text-white font-bold py-5 px-8 rounded-2xl text-base w-full uppercase tracking-wider hover:bg-red-700 transition-all shadow-lg shadow-red-900/40 active:scale-95">
+                Approve The Expansion
             </button>
+            <p class="text-center text-xs text-gray-500 uppercase tracking-widest mt-5 font-bold">Low kitchen
+                investment. Fast service model.</p>
 
         </div>
     </section>
 
 </body>
+
 </html>
